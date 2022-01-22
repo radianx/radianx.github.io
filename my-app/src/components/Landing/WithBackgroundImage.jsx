@@ -49,7 +49,7 @@ export const WithBackgroundImage = props => {
               color={'grey.700'}
               _hover={{ bg: 'orange.300' }}
             >
-              ¿Donde?
+              Ver más
             </Button>
             <Button
               onClick={handleVoyAction}
@@ -58,7 +58,7 @@ export const WithBackgroundImage = props => {
               color={'orange.200'}
               _hover={{ bg: 'orangeAlpha.400' }}
             >
-              ¡Voy a ir!
+              ¡Confirmar Asistencia!
             </Button>
           </Stack>
         </Stack>

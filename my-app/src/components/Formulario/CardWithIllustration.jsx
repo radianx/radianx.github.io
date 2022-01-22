@@ -4,27 +4,25 @@ import {
   Stack,
   Heading,
   Text,
-  Input,
   Button,
   Icon,
   useColorModeValue,
   createIcon,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
 } from '@chakra-ui/react';
 
 export default function CardWithIllustration() {
   const [nombre, setNombre] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [cantidad, setCantidad] = React.useState(0);
-  const [codigo, setCodigo] = React.useState(0);
-  const handleEmailChange = event => setEmail(event.target.value);
-  const handleNombreChange = event => setNombre(event.target.value);
-  const handleCantidadChange = value => setCantidad(value);
-  const handleCodigoChange = value => setCodigo(value);
+  const [codigoQR, setCodigoQR] = React.useState(0);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  const handleSubmit = () => {
+    setIsSubmitting(true);
+    const data = {
+      nombre,
+      codigoQR: codigoQR,
+    };
+    console.log(data);
+  };
 
   return (
     <Flex
@@ -48,86 +46,50 @@ export default function CardWithIllustration() {
             fontSize={'3xl'}
             color={useColorModeValue('orange.800', 'orange.200')}
           >
-            Réspondez s'il vous plait (RSVP)
+            Confirmación de asistencia
           </Heading>
           <Text fontSize={'lg'} color={'gray.500'}>
-            ¡Avisamos si venís y cuantos son porfis!
+            ¡Cupos limitados!
           </Text>
         </Stack>
         <Stack spacing={4} direction={{ base: 'column', md: 'row' }} w={'full'}>
           <Text fontSize={'lg'} color={'gray.500'} lineHeight={2.3}>
-            Nombre
+            Nombres:
           </Text>
-          <Input
-            value={nombre}
-            onChange={handleNombreChange}
-            type={'text'}
-            placeholder={'Cosme Fulanito'}
-            color={useColorModeValue('orange.800', 'orange.200')}
-            bg={useColorModeValue('orange.100', 'orange.600')}
-            rounded={'full'}
-            border={0}
-            _focus={{
-              bg: useColorModeValue('orange.200', 'orange.800'),
-              outline: 'none',
-            }}
-          />
-          <Text fontSize={'lg'} color={'gray.500'} lineHeight={2.3}>
-            Email
-          </Text>
-          <Input
-            value={email}
-            onChange={handleEmailChange}
-            type={'text'}
-            placeholder={'(OPCIONAL)'}
-            color={useColorModeValue('orange.800', 'orange.200')}
-            bg={useColorModeValue('orange.100', 'orange.600')}
-            rounded={'full'}
-            border={0}
-            _focus={{
-              bg: useColorModeValue('orange.200', 'orange.800'),
-              outline: 'none',
-            }}
-          />
+          <Text>{nombre}</Text>
         </Stack>
         <Stack spacing={4} direction={{ base: 'column', md: 'row' }} w={'full'}>
-          <Text fontSize={'lg'} color={'gray.500'} lineHeight={2.3}>
-            Acompañante/Hijos
-          </Text>
-          <NumberInput
-            defaultValue={0}
-            min={0}
-            value={cantidad}
-            onChange={handleCantidadChange}
-          >
-            <NumberInputField />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
           <Text fontSize={'lg'} color={'gray.500'} lineHeight={2.3}>
             Código de Invitación
           </Text>
-          <NumberInput value={codigo} onChange={handleCodigoChange}>
-            <NumberInputField />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
+          <Text>{codigoQR}</Text>
         </Stack>
         <Stack align={'center'} spacing={2}>
           <Button
-            bg={'orange.400'}
+            isLoading={isSubmitting}
+            bg={'green.400'}
             rounded={'full'}
             color={'white'}
             width={'200px'}
             flex={'1 0 auto'}
-            _hover={{ bg: 'orange.500' }}
-            _focus={{ bg: 'orange.500' }}
+            onClick={handleSubmit}
+            _hover={{ bg: 'green.500' }}
+            _focus={{ bg: 'green.500' }}
           >
-            Enviar
+            Confirmar presencia 😉
+          </Button>
+          <Button
+            isLoading={isSubmitting}
+            bg={'red.400'}
+            rounded={'full'}
+            color={'white'}
+            width={'200px'}
+            flex={'1 0 auto'}
+            onClick={handleSubmit}
+            _hover={{ bg: 'red.500' }}
+            _focus={{ bg: 'red.500' }}
+          >
+            Rechazar invitación 😢
           </Button>
         </Stack>
       </Stack>

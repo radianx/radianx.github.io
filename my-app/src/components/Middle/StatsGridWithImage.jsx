@@ -9,7 +9,9 @@ import {
 } from '@chakra-ui/react';
 import LandingTwo from '../../images/landing2.jpg';
 
-export default function StatsGridWithImage() {
+export default function StatsGridWithImage(props) {
+  const { title, subtitle, stats, secondary } = props;
+
   return (
     <Box bg={'orange.200'} position={'relative'}>
       <Flex
@@ -23,16 +25,25 @@ export default function StatsGridWithImage() {
         position={'absolute'}
         width={'50%'}
         insetY={0}
-        right={0}
+        right={secondary ? '50%' : '0'}
       >
-        <Flex
-          bgGradient={'linear(to-r, orange.200 10%, transparent)'}
-          w={'full'}
-          h={'full'}
-        />
+        {secondary ? (
+          <Flex
+            bgGradient={'linear(to-l, orange.200 10%, transparent)'}
+            w={'full'}
+            h={'full'}
+          />
+        ) : (
+          <Flex
+            bgGradient={'linear(to-r, orange.200 10%, transparent)'}
+            w={'full'}
+            h={'full'}
+          />
+        )}
       </Flex>
       <Container maxW={'7xl'} zIndex={10} position={'relative'}>
         <Stack direction={{ base: 'column', lg: 'row' }}>
+          {secondary ? <Flex flex={1} /> : null}
           <Stack
             flex={1}
             color={'gray.500'}
@@ -45,10 +56,10 @@ export default function StatsGridWithImage() {
                 mb={5}
                 fontSize={{ base: '3xl', md: '5xl' }}
               >
-                Eventos
+                {title}
               </Heading>
               <Text fontSize={'xl'} color={'gray.600'}>
-                Todo sucederá en Garupá
+                {subtitle}
               </Text>
             </Box>
 
@@ -70,45 +81,9 @@ export default function StatsGridWithImage() {
               ))}
             </SimpleGrid>
           </Stack>
-          <Flex flex={1} />
+          {secondary ? null : <Flex flex={1} />}
         </Stack>
       </Container>
     </Box>
   );
 }
-
-const StatsText = ({ children }) => (
-  <Text as={'span'} fontWeight={700} color={'gray.600'}>
-    {children}
-  </Text>
-);
-
-const stats = [
-  {
-    title: '15 de Julio',
-    content: (
-      <>
-        <StatsText>Casamiento por Civil</StatsText> por la mañana, luego una
-        juntada familiera en Candelaria
-      </>
-    ),
-  },
-  {
-    title: '16 de Julio',
-    content: (
-      <>
-        <StatsText>Casamiento por Iglesia</StatsText> por la tarde en la Iglesia
-        de Fátima
-      </>
-    ),
-  },
-  {
-    title: '16 de Julio',
-    content: (
-      <>
-        <StatsText>Fiesta de casamiento</StatsText> después de la Iglesia, a
-        partir de las 20:00 Hs. en el Salón de eventos Allaité
-      </>
-    ),
-  },
-];

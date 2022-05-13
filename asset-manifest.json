@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.b3d4c1a8.chunk.js",
-    "main.js.map": "/static/js/main.b3d4c1a8.chunk.js.map",
+    "main.js": "/static/js/main.d8d5c922.chunk.js",
+    "main.js.map": "/static/js/main.d8d5c922.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d316ed27.js",
     "runtime-main.js.map": "/static/js/runtime-main.d316ed27.js.map",
     "static/js/2.371e0c94.chunk.js": "/static/js/2.371e0c94.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.a06edfca.chunk.js.map": "/static/js/3.a06edfca.chunk.js.map",
     "index.html": "/index.html",
     "static/js/2.371e0c94.chunk.js.LICENSE.txt": "/static/js/2.371e0c94.chunk.js.LICENSE.txt",
-    "static/media/allaite.4edb8e6b.jpg": "/static/media/allaite.4edb8e6b.jpg",
+    "static/media/allaite.7f071176.png": "/static/media/allaite.7f071176.png",
     "static/media/comoLlegar.4ec21936.mp4": "/static/media/comoLlegar.4ec21936.mp4",
-    "static/media/fatima.390331dc.jpg": "/static/media/fatima.390331dc.jpg",
-    "static/media/landing.8e226704.jpg": "/static/media/landing.8e226704.jpg"
+    "static/media/fatima.a7be2e48.png": "/static/media/fatima.a7be2e48.png",
+    "static/media/landingBoda.e44963b3.jpg": "/static/media/landingBoda.e44963b3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d316ed27.js",
     "static/js/2.371e0c94.chunk.js",
-    "static/js/main.b3d4c1a8.chunk.js"
+    "static/js/main.d8d5c922.chunk.js"
   ]
 }
